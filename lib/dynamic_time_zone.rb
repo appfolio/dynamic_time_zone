@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require 'time'
+require 'active_support/core_ext/date_time/conversions'
+
 module DynamicTimeZone
   class << self
     attr_accessor :enabled
@@ -11,3 +14,4 @@ end
 DynamicTimeZone.enabled = false
 
 require 'dynamic_time_zone/validator'
+require 'dynamic_time_zone/identifier_builder'
