@@ -14,5 +14,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'tzinfo', '~> 1.2'
-  spec.add_dependency 'activesupport', '>= 5.2', '< 7'
+  spec.add_dependency 'activesupport', '>= 5.2', '< 6.1'
 end

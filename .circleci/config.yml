@@ -1,0 +1,25 @@
+version: 2.1
+commands:
+  bundle_install_and_test:
+    steps:
+      - checkout
+      - run: sudo gem update --system
+      - run: bundle install
+      - run: mkdir rspec
+      - run: bundle exec appraisal install
+      - run: bundle exec appraisal rspec --format progress --format RspecJunitFormatter --out rspec/rspec.xml
+      - store_test_results:
+          path: rspec
+
+jobs:
+  test-ruby-263:
+    docker:
+      - image: circleci/ruby:2.6.3
+    steps:
+      - bundle_install_and_test
+
+workflows:
+  rc:
+    jobs:
+      - test-ruby-263:
+          context: appfolio_test_context
