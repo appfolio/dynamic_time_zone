@@ -8,6 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = DynamicTimeZone::VERSION
   spec.authors       = ['Appfolio']
 
+  spec.homepage      = 'https://github.com/appfolio/dynamic_time_zone'
   spec.summary       = 'Dynamically set the offset from UTC from timezone identifier'
 
   spec.files         = Dir['{lib}/**/*']
