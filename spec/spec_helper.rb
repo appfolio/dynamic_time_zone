@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'dynamic_time_zone'
+require 'dynamic_time_zone/test_helper'
+DynamicTimeZone.enabled = false
 
 RSpec.configure do |config|
   config.mock_with :rspec do |mocks|
@@ -10,7 +12,5 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  config.before do
-    DynamicTimeZone.enabled = false
-  end
+  config.include(DynamicTimeZone::TestHelper)
 end
