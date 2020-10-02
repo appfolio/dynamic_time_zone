@@ -7,8 +7,13 @@ describe DynamicTimeZone::TimeZoneDataSource do
     TZInfo::DataSource.set(DynamicTimeZone::TimeZoneDataSource.new)
   end
 
+  around do |example|
+    with_isolated_time_zone_and_dynamic_time_zone_setting do
+      example.run
+    end
+  end
+
   it 'can handle non dynamic timezone' do
-    DynamicTimeZone.enabled = true
     time_zone = TZInfo::Timezone.get('US/Arizona')
     expect(time_zone.identifier).to eq 'US/Arizona'
     utc_offset = time_zone.period_for_utc(DateTime.now).utc_offset
@@ -16,7 +21,6 @@ describe DynamicTimeZone::TimeZoneDataSource do
   end
 
   it 'we can look up timezone by string' do
-    DynamicTimeZone.enabled = true
     time_zone = TZInfo::Timezone.get('DynamicTimeZone/+36000')
     expect(time_zone.identifier).to eq 'DynamicTimeZone/+36000'
     utc_offset = time_zone.period_for_utc(DateTime.now).utc_offset
