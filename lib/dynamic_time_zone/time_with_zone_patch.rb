@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module LocaltimePatch
+module TimeWithZonePatch
   def localtime(utc_offset = nil)
     return super unless DynamicTimeZone.enabled
 
@@ -9,4 +9,4 @@ module LocaltimePatch
   alias_method :getlocal, :localtime
 end
 
-ActiveSupport::TimeWithZone.prepend(LocaltimePatch)
+ActiveSupport::TimeWithZone.prepend(TimeWithZonePatch)

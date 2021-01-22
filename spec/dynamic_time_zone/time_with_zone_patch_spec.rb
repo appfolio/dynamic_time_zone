@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe LocaltimePatch do
+describe TimeWithZonePatch do
   before do
     TZInfo::DataSource.set(DynamicTimeZone::TimeZoneDataSource.new)
   end
