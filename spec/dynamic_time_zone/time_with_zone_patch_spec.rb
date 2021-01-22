@@ -7,6 +7,12 @@ describe TimeWithZonePatch do
     TZInfo::DataSource.set(DynamicTimeZone::TimeZoneDataSource.new)
   end
 
+  low_offset_timezone = 'DynamicTimeZone/+36000'
+  high_offset_timezone = 'DynamicTimeZone/+3600000'
+  timezones = [low_offset_timezone, high_offset_timezone]
+
+  let(:strftime_now) { Time.zone.now.strftime('%Y-%m-%d %H:%M:%S') }
+
   describe 'DynamicTimeZone is enabled' do
     around do |example|
       with_isolated_time_zone_and_dynamic_time_zone_setting do
@@ -14,14 +20,11 @@ describe TimeWithZonePatch do
       end
     end
 
-    it 'works with low amount of offset' do
-      Time.zone = 'DynamicTimeZone/+36000'
-      expect { Time.zone.now.strftime('%Y-%m-%d %H:%M:%S') }.not_to raise_error
-    end
-
-    it 'works with high amount of offset' do
-      Time.zone = 'DynamicTimeZone/+3600000'
-      expect { Time.zone.now.strftime('%Y-%m-%d %H:%M:%S') }.not_to raise_error
+    timezones.each do |timezone|
+      it "strftime does not raise error with timezone #{timezone}" do
+        Time.zone = timezone
+        expect { strftime_now }.not_to raise_error
+      end
     end
   end
 
@@ -30,9 +33,14 @@ describe TimeWithZonePatch do
       DynamicTimeZone.enabled = false
     end
 
-    it 'works with low amount of offset' do
-      Time.zone = 'US/Arizona'
-      expect { Time.zone.now.strftime('%Y-%m-%d %H:%M:%S') }.not_to raise_error
+    it "strftime does not raise error with timezone #{low_offset_timezone}" do
+      Time.zone = low_offset_timezone
+      expect { strftime_now }.not_to raise_error
+    end
+
+    it "strftime raise error with timezone #{high_offset_timezone}" do
+      Time.zone = high_offset_timezone
+      expect { strftime_now }.to raise_error(ArgumentError)
     end
   end
 end
