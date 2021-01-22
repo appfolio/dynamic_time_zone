@@ -12,6 +12,7 @@ describe TimeWithZonePatch do
   timezones = [low_offset_timezone, high_offset_timezone]
 
   let(:strftime_now) { Time.zone.now.strftime('%Y-%m-%d %H:%M:%S') }
+  let(:now_default_to_s) { Time.zone.now.to_s(:default) }
 
   describe 'DynamicTimeZone is enabled' do
     around do |example|
@@ -25,6 +26,11 @@ describe TimeWithZonePatch do
         Time.zone = timezone
         expect { strftime_now }.not_to raise_error
       end
+
+      it "default to_s ends with +0000 with timezone #{timezone}" do
+        Time.zone = timezone
+        expect(now_default_to_s).to end_with('+0000')
+      end
     end
   end
 
@@ -36,6 +42,11 @@ describe TimeWithZonePatch do
     it "strftime does not raise error with timezone #{low_offset_timezone}" do
       Time.zone = low_offset_timezone
       expect { strftime_now }.not_to raise_error
+    end
+
+    it "default to_s ends with +1000 with timezone #{low_offset_timezone}" do
+      Time.zone = low_offset_timezone
+      expect(now_default_to_s).to end_with('+1000')
     end
 
     it "strftime raise error with timezone #{high_offset_timezone}" do

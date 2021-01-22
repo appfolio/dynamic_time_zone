@@ -7,6 +7,10 @@ module TimeWithZonePatch
     utc + (utc_offset || 0).seconds
   end
   alias_method :getlocal, :localtime
+
+  def formatted_offset(*args)
+    DynamicTimeZone.enabled ? '+0000' : super
+  end
 end
 
 ActiveSupport::TimeWithZone.prepend(TimeWithZonePatch)
