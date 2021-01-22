@@ -20,6 +20,6 @@ DynamicTimeZone.enabled = false
 require 'dynamic_time_zone/validator'
 require 'dynamic_time_zone/identifier_builder'
 require 'dynamic_time_zone/time_zone_data_source'
-require 'dynamic_time_zone/localtime_patch'
+require 'dynamic_time_zone/time_with_zone_patch'
 require 'dynamic_time_zone/offset_format_convertor'
 require 'dynamic_time_zone/time_parser'
