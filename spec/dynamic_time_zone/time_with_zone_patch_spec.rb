@@ -9,7 +9,8 @@ describe TimeWithZonePatch do
 
   low_offset_timezone = 'DynamicTimeZone/+36000'
   high_offset_timezone = 'DynamicTimeZone/+3600000'
-  timezones = [low_offset_timezone, high_offset_timezone]
+  normal_offset_timezone = 'America/Los_Angeles'
+  dynamic_timezones = [low_offset_timezone, high_offset_timezone]
 
   let(:strftime_now) { Time.zone.now.strftime('%Y-%m-%d %H:%M:%S') }
   let(:now_default_to_s) { Time.zone.now.to_s(:default) }
@@ -21,7 +22,7 @@ describe TimeWithZonePatch do
       end
     end
 
-    timezones.each do |timezone|
+    dynamic_timezones.each do |timezone|
       it "strftime does not raise error with timezone #{timezone}" do
         Time.zone = timezone
         expect { strftime_now }.not_to raise_error
@@ -31,6 +32,11 @@ describe TimeWithZonePatch do
         Time.zone = timezone
         expect(now_default_to_s).to end_with('+0000')
       end
+    end
+
+    it "to_s does not end with +0000 with timezone #{normal_offset_timezone}" do
+      Time.zone = normal_offset_timezone
+      expect(now_default_to_s).not_to end_with('+0000')
     end
   end
 
