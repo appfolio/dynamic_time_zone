@@ -1,25 +1,51 @@
 version: 2.1
-commands:
-  bundle_install_and_test:
-    steps:
-      - checkout
-      - run: sudo gem update --system
-      - run: bundle install
-      - run: mkdir rspec
-      - run: bundle exec appraisal install
-      - run: bundle exec appraisal rspec --format progress --format RspecJunitFormatter --out rspec/rspec.xml
-      - store_test_results:
-          path: rspec
+
+orbs:
+  gem-tool: appfolio/gem-tool@volatile
 
 jobs:
-  test-ruby-263:
-    docker:
-      - image: circleci/ruby:2.6.3
+  rspec:
+    parameters:
+      ruby_version:
+        description: Ruby version
+        type: string
+      executor_tag:
+        description: Tag of the executor
+        type: string
+      after-checkout-steps:
+        description: Steps that will be executed after checkout
+        type: steps
+        default: [ ]
+      after-appraisal-install-steps:
+        description: Steps that will be executed after appraisal install
+        type: steps
+        default: [ ]
+      gem_name:
+        description: Name of the gem for import
+        type: string
+        default: ''
+    executor:
+      name: << parameters.executor_tag >>
+      ruby_version: << parameters.ruby_version >>
     steps:
-      - bundle_install_and_test
+      - checkout
+      - steps: << parameters.after-checkout-steps >>
+      - gem-tool/update_rubygems
+      - gem-tool/bundle_install
+      - gem-tool/appraisal_install
+      - steps: << parameters.after-appraisal-install-steps >>
+      - gem-tool/import_gem
+      - gem-tool/appraisal_rspec
 
 workflows:
   rc:
     jobs:
-      - test-ruby-263:
-          context: appfolio_test_context
+      - rspec:
+          name: test_ruby-<< matrix.ruby_version >>
+          executor_tag: gem-tool/ruby
+          matrix:
+            parameters:
+              ruby_version:
+                - '3.1.0'
+                - '2.7.5'
+                - '2.6.9'

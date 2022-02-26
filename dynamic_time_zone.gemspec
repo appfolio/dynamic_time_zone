@@ -14,6 +14,7 @@ Gem::Specification.new do |spec|
   spec.files         = Dir['{lib}/**/*']
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'tzinfo', '~> 1.2'
-  spec.add_dependency 'activesupport', '>= 5.2', '< 6.1'
+  spec.add_dependency 'activesupport', '>= 6.1', '< 7.1'
+  spec.add_dependency 'railties', '>= 6.1', '< 7.1'
+  spec.add_dependency 'tzinfo', '~> 2.0'
 end
