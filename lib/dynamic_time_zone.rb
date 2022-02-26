@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 require 'time'
+require 'rails'
 require 'active_support/core_ext/date_time/conversions'
+require 'active_support/isolated_execution_state' if Rails.gem_version > Gem::Version.new('7.0')
 require 'active_support/time_with_zone'
 require 'active_support/core_ext/time/zones'
 require 'active_support/core_ext/numeric/time'
