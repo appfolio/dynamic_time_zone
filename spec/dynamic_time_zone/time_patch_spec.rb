@@ -21,6 +21,9 @@ describe TimePatch do
       ActiveSupport::TimeZone['America/New_York']
     )
   end
+  let(:normal_zone_date7) do
+    Date.new(2022, 3, 1)
+  end
 
   describe 'DynamicTimeZone is enabled' do
     around do |example|
@@ -45,7 +48,7 @@ describe TimePatch do
 
     shared_examples 'sort normal times and dynamic times correctly' do
       it 'compare times correctly' do
-        sorted_time = [utc_time1, utc_time2, normal_zone_time3, normal_zone_time4, dynamic_time5, dynamic_time6]
+        sorted_time = [utc_time1, utc_time2, normal_zone_time3, normal_zone_time4, dynamic_time5, dynamic_time6, normal_zone_date7]
         expect(sorted_time.sort).to eql(sorted_time)
       end
     end
@@ -68,7 +71,7 @@ describe TimePatch do
 
     shared_examples 'sort normal times correctly' do
       it 'compare times correctly' do
-        sorted_time = [utc_time1, utc_time2, normal_zone_time3, normal_zone_time4]
+        sorted_time = [utc_time1, utc_time2, normal_zone_time3, normal_zone_time4, normal_zone_date7]
         expect(sorted_time.sort).to eql(sorted_time)
       end
     end
