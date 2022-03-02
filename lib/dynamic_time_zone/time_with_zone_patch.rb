@@ -9,7 +9,11 @@ module TimeWithZonePatch
   alias_method :getlocal, :localtime
 
   def formatted_offset(*args)
-    using_dynamic_time_zone? ? '+0000' : super
+    actual_formatted_offset = super
+    return actual_formatted_offset unless using_dynamic_time_zone?
+
+    seconds_in_24_hours = 24 * 60 * 60
+    utc_offset.abs > seconds_in_24_hours ?  '+0000' : actual_formatted_offset
   end
 
   def using_dynamic_time_zone?
