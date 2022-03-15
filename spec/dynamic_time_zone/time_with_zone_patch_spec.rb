@@ -20,7 +20,13 @@ describe TimeWithZonePatch do
   ]
 
   let(:strftime_now) { Time.zone.now.strftime('%Y-%m-%d %H:%M:%S') }
-  let(:now_default_to_s) { Time.zone.now.to_s(:default) }
+  let(:now_default_to_s) do
+    if Rails.gem_version > Gem::Version.new('7.0')
+      Time.zone.now.to_fs(:default)
+    else
+      Time.zone.now.to_s(:default)
+    end
+  end
 
   describe 'DynamicTimeZone is enabled' do
     around do |example|
