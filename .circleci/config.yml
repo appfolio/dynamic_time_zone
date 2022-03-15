@@ -3,46 +3,12 @@ version: 2.1
 orbs:
   gem-tool: appfolio/gem-tool@volatile
 
-jobs:
-  rspec:
-    parameters:
-      ruby_version:
-        description: Ruby version
-        type: string
-      executor_tag:
-        description: Tag of the executor
-        type: string
-      after-checkout-steps:
-        description: Steps that will be executed after checkout
-        type: steps
-        default: [ ]
-      after-appraisal-install-steps:
-        description: Steps that will be executed after appraisal install
-        type: steps
-        default: [ ]
-      gem_name:
-        description: Name of the gem for import
-        type: string
-        default: ''
-    executor:
-      name: << parameters.executor_tag >>
-      ruby_version: << parameters.ruby_version >>
-    steps:
-      - checkout
-      - steps: << parameters.after-checkout-steps >>
-      - gem-tool/update_rubygems
-      - gem-tool/bundle_install
-      - gem-tool/appraisal_install
-      - steps: << parameters.after-appraisal-install-steps >>
-      - gem-tool/import_gem
-      - gem-tool/appraisal_rspec
-
 workflows:
   rc:
     jobs:
-      - rspec:
+      - gem-tool/rake_test:
           name: test_ruby-<< matrix.ruby_version >>
-          executor_tag: gem-tool/ruby
+          executor_tag: ruby
           matrix:
             parameters:
               ruby_version:
