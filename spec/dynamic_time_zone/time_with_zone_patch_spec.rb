@@ -19,6 +19,8 @@ describe TimeWithZonePatch do
     high_negative_offset_timezone
   ]
 
+  let(:current_date) { Date.current }
+  let(:current_time) { Time.current }
   let(:strftime_now) { Time.zone.now.strftime('%Y-%m-%d %H:%M:%S') }
   let(:now_default_to_s) do
     if Rails.gem_version > Gem::Version.new('7.0')
@@ -39,6 +41,20 @@ describe TimeWithZonePatch do
       it "strftime does not raise error with timezone #{timezone}" do
         Time.zone = timezone
         expect { strftime_now }.not_to raise_error
+      end
+    end
+
+    dynamic_timezones.each do |timezone|
+      it "current time does not raise error with timezone #{timezone}" do
+        Time.zone = timezone
+        expect { current_time }.not_to raise_error
+      end
+    end
+
+    dynamic_timezones.each do |timezone|
+      it "current date does not raise error with timezone #{timezone}" do
+        Time.zone = timezone
+        expect { current_date }.not_to raise_error
       end
     end
 
