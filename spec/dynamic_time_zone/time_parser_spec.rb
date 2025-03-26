@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require 'dynamic_time_zone/test_helper'
 
 describe DynamicTimeZone::TimeParser do
   subject(:parser) { described_class.new }

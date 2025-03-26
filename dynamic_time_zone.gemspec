@@ -1,20 +1,24 @@
-# coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'dynamic_time_zone/version'
+# frozen_string_literal: true
+
+require_relative 'lib/dynamic_time_zone/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'dynamic_time_zone'
   spec.version       = DynamicTimeZone::VERSION
-  spec.authors       = ['Appfolio']
-
+  spec.platform      = Gem::Platform::RUBY
+  spec.author        = 'AppFolio'
+  spec.email         = 'opensource@appfolio.com'
+  spec.description   = 'Dynamically set the offset from UTC from timezone identifier'
+  spec.summary       = spec.description
   spec.homepage      = 'https://github.com/appfolio/dynamic_time_zone'
-  spec.summary       = 'Dynamically set the offset from UTC from timezone identifier'
-
-  spec.files         = Dir['{lib}/**/*']
+  spec.license       = 'MIT'
+  spec.files         = Dir['**/*'].select { |f| f[%r{^(lib/|LICENSE.txt|.*gemspec)}] }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'activesupport', '>= 6.1', '< 7.1'
-  spec.add_dependency 'railties', '>= 6.1', '< 7.1'
-  spec.add_dependency 'tzinfo', '~> 2.0'
+  spec.required_ruby_version = Gem::Requirement.new('< 3.5')
+  spec.metadata['allowed_push_host'] = 'https://rubygems.org'
+
+  spec.add_dependency('activesupport', ['>= 7', '< 8.1'])
+  spec.add_dependency('railties', ['>= 7', '< 8.1'])
+  spec.add_dependency('tzinfo', ['>= 2', '< 3'])
 end
