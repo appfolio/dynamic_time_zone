@@ -1,11 +1,12 @@
-.idea
-test/dummy/log/test.log
-test/dummy/db/schema.rb
-pkg
-.bundle
+/.bundle/
+/coverage/
+/pkg/
+/tmp/
+
+# Only generate Appraisal gemfiles on CI
+/gemfiles/
+
+# Ignore generated files
 Gemfile.lock
-gemfiles/*.gemfile.lock
-test/dummy/log/*.log
-test/dummy/log/multiplexer.pid
-test/dummy/tmp
-gemfiles/*lock
+*.log
+*.gem
