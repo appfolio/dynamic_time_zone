@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  title: dynamic_time_zone
+  description: Dynamically set the offset from UTC from timezone identifier.
+  tags: []
+  annotations:
+    appfolio.com/package-location: https://rubygems.org/gems/dynamic_time_zone
+    appfolio.com/package-type: gem
+    circleci.com/project-slug: github/appfolio/dynamic_time_zone
+  name: dynamic-time-zone
+spec:
+  type: library
+  lifecycle: maintenance
+  owner: engineering
