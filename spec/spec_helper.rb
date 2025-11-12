@@ -18,7 +18,6 @@ if ENV['WITH_COVERAGE'] == 'true'
   end
 end
 
-require 'logger' # Due to issue with activesupport / concurrent-ruby
 require 'debug'
 require 'dynamic_time_zone'
 require 'dynamic_time_zone/test_helper'
