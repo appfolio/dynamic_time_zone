@@ -2,14 +2,13 @@
 
 ## [Unreleased](https://github.com/appfolio/dynamic_time_zone/tree/HEAD)
 
-[Full Changelog](https://github.com/appfolio/dynamic_time_zone/compare/5c43e1a23a57906f3aa51f8340408830262e2c5f...HEAD)
-
-**Closed issues:**
-
-- Combination of dynamic\_time\_zone + Oj.dump \(ruby\) + date-fns \(JS\) doesn't work [\#3](https://github.com/appfolio/dynamic_time_zone/issues/3)
+[Full Changelog](https://github.com/appfolio/dynamic_time_zone/compare/v1.1.0...HEAD)
 
 **Merged pull requests:**
 
+- \[BANK-1584\] Appraise `activesupport` and `railties` 8.1 [\#13](https://github.com/appfolio/dynamic_time_zone/pull/13) ([Maimer](https://github.com/Maimer))
+- Configure NPM and Yarn to use custom NPM package repository [\#12](https://github.com/appfolio/dynamic_time_zone/pull/12) ([appfolio-sourcegraph-batch-changes[bot]](https://github.com/apps/appfolio-sourcegraph-batch-changes))
+- \[KNOW-154\]: Use CODEOWNERS to determine Developer Portal catalog ownership [\#11](https://github.com/appfolio/dynamic_time_zone/pull/11) ([modethirteen](https://github.com/modethirteen))
 - \[BANK-1397\] Appraise Ruby 3.4 and Rails 8 [\#10](https://github.com/appfolio/dynamic_time_zone/pull/10) ([Maimer](https://github.com/Maimer))
 - Fix Date.current [\#9](https://github.com/appfolio/dynamic_time_zone/pull/9) ([pkmiec](https://github.com/pkmiec))
 - Appraise to Rails 6.1 and 7 [\#8](https://github.com/appfolio/dynamic_time_zone/pull/8) ([mqchau](https://github.com/mqchau))
@@ -19,6 +18,14 @@
 - always format offset to +0000 in string representation [\#4](https://github.com/appfolio/dynamic_time_zone/pull/4) ([mqchau](https://github.com/mqchau))
 - Time parser that can handle large offset [\#2](https://github.com/appfolio/dynamic_time_zone/pull/2) ([mqchau](https://github.com/mqchau))
 - First iteration [\#1](https://github.com/appfolio/dynamic_time_zone/pull/1) ([mqchau](https://github.com/mqchau))
+
+## [v1.1.0](https://github.com/appfolio/dynamic_time_zone/tree/v1.1.0) (2025-11-14)
+
+[Full Changelog](https://github.com/appfolio/dynamic_time_zone/compare/5c43e1a23a57906f3aa51f8340408830262e2c5f...v1.1.0)
+
+**Closed issues:**
+
+- Combination of dynamic\_time\_zone + Oj.dump \(ruby\) + date-fns \(JS\) doesn't work [\#3](https://github.com/appfolio/dynamic_time_zone/issues/3)
 
 
 
