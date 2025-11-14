@@ -53,13 +53,18 @@ describe TimePatch do
       end
     end
 
-    describe 'when preserve_timezone is true' do
-      before { DateAndTime::Compatibility.preserve_timezone = true }
-      it_behaves_like 'sort normal times and dynamic times correctly'
-    end
+    if Rails.version < Gem::Version.new('8.1')
+      describe 'when preserve_timezone is true' do
+        before { DateAndTime::Compatibility.preserve_timezone = true }
+        it_behaves_like 'sort normal times and dynamic times correctly'
+      end
 
-    describe 'when preserve_timezone is false' do
-      before { DateAndTime::Compatibility.preserve_timezone = false }
+      describe 'when preserve_timezone is false' do
+        before { DateAndTime::Compatibility.preserve_timezone = false }
+        it_behaves_like 'sort normal times and dynamic times correctly'
+      end
+    else
+      # Rails 8.1+ removed preserve_timezone setting
       it_behaves_like 'sort normal times and dynamic times correctly'
     end
   end
@@ -76,13 +81,18 @@ describe TimePatch do
       end
     end
 
-    describe 'when preserve_timezone is true' do
-      before { DateAndTime::Compatibility.preserve_timezone = true }
-      it_behaves_like 'sort normal times correctly'
-    end
+    if Rails.version < Gem::Version.new('8.1')
+      describe 'when preserve_timezone is true' do
+        before { DateAndTime::Compatibility.preserve_timezone = true }
+        it_behaves_like 'sort normal times correctly'
+      end
 
-    describe 'when preserve_timezone is false' do
-      before { DateAndTime::Compatibility.preserve_timezone = false }
+      describe 'when preserve_timezone is false' do
+        before { DateAndTime::Compatibility.preserve_timezone = false }
+        it_behaves_like 'sort normal times correctly'
+      end
+    else
+      # Rails 8.1+ removed preserve_timezone setting
       it_behaves_like 'sort normal times correctly'
     end
   end
