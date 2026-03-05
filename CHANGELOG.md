@@ -2,7 +2,23 @@
 
 ## [Unreleased](https://github.com/appfolio/dynamic_time_zone/tree/HEAD)
 
-[Full Changelog](https://github.com/appfolio/dynamic_time_zone/compare/v1.1.0...HEAD)
+[Full Changelog](https://github.com/appfolio/dynamic_time_zone/compare/v1.2.0...HEAD)
+
+**Merged pull requests:**
+
+- \[BANK-1738\] Update supported Ruby versions to 3.3.10, 3.4.8, 4.0.1 [\#14](https://github.com/appfolio/dynamic_time_zone/pull/14) ([Maimer](https://github.com/Maimer))
+
+## [v1.2.0](https://github.com/appfolio/dynamic_time_zone/tree/v1.2.0) (2026-03-05)
+
+[Full Changelog](https://github.com/appfolio/dynamic_time_zone/compare/v1.1.0...v1.2.0)
+
+## [v1.1.0](https://github.com/appfolio/dynamic_time_zone/tree/v1.1.0) (2025-11-14)
+
+[Full Changelog](https://github.com/appfolio/dynamic_time_zone/compare/5c43e1a23a57906f3aa51f8340408830262e2c5f...v1.1.0)
+
+**Closed issues:**
+
+- Combination of dynamic\_time\_zone + Oj.dump \(ruby\) + date-fns \(JS\) doesn't work [\#3](https://github.com/appfolio/dynamic_time_zone/issues/3)
 
 **Merged pull requests:**
 
@@ -18,14 +34,6 @@
 - always format offset to +0000 in string representation [\#4](https://github.com/appfolio/dynamic_time_zone/pull/4) ([mqchau](https://github.com/mqchau))
 - Time parser that can handle large offset [\#2](https://github.com/appfolio/dynamic_time_zone/pull/2) ([mqchau](https://github.com/mqchau))
 - First iteration [\#1](https://github.com/appfolio/dynamic_time_zone/pull/1) ([mqchau](https://github.com/mqchau))
-
-## [v1.1.0](https://github.com/appfolio/dynamic_time_zone/tree/v1.1.0) (2025-11-14)
-
-[Full Changelog](https://github.com/appfolio/dynamic_time_zone/compare/5c43e1a23a57906f3aa51f8340408830262e2c5f...v1.1.0)
-
-**Closed issues:**
-
-- Combination of dynamic\_time\_zone + Oj.dump \(ruby\) + date-fns \(JS\) doesn't work [\#3](https://github.com/appfolio/dynamic_time_zone/issues/3)
 
 
 
