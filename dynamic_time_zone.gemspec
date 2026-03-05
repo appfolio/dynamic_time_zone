@@ -12,10 +12,10 @@ Gem::Specification.new do |spec|
   spec.summary       = spec.description
   spec.homepage      = 'https://github.com/appfolio/dynamic_time_zone'
   spec.license       = 'MIT'
-  spec.files         = Dir['**/*'].select { |f| f[%r{^(lib/|LICENSE.txt|.*gemspec)}] }
+  spec.files         = Dir['**/*'].select { |f| f[%r{^(lib/|LICENSE.txt|dynamic_time_zone\.gemspec)}] }
   spec.require_paths = ['lib']
 
-  spec.required_ruby_version = Gem::Requirement.new('< 3.5')
+  spec.required_ruby_version = Gem::Requirement.new('< 4.1')
   spec.metadata['allowed_push_host'] = 'https://rubygems.org'
 
   spec.add_dependency('activesupport', ['>= 7.2', '< 8.2'])

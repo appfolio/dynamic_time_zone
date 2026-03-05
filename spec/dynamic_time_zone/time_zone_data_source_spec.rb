@@ -14,10 +14,10 @@ describe DynamicTimeZone::TimeZoneDataSource do
   end
 
   it 'can handle non dynamic timezone' do
-    time_zone = TZInfo::Timezone.get('US/Arizona')
-    expect(time_zone.identifier).to eq 'US/Arizona'
+    time_zone = TZInfo::Timezone.get('America/Phoenix')
+    expect(time_zone.identifier).to eq 'America/Phoenix'
     utc_offset = time_zone.period_for_utc(DateTime.now).utc_offset
-    expect(utc_offset).to eq -25200
+    expect(utc_offset).to eq(-25200)
   end
 
   it 'we can look up timezone by string' do
