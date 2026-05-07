@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.2.1](https://github.com/appfolio/dynamic_time_zone/compare/v1.2.0...v1.2.1) (2026-05-07)
+
+
+### Documentation
+
+* update changelog ([22e630d](https://github.com/appfolio/dynamic_time_zone/commit/22e630dd4389e51a5c7626141f5982d8a25e786a))
+
+
+### Miscellaneous Chores
+
+* migrate npm registry from CodeArtifact to JFrog ([5a2d1f9](https://github.com/appfolio/dynamic_time_zone/commit/5a2d1f95f1bdc5cc44cbd46460e33e3881a2cd78))
+* migrate npm registry from CodeArtifact to JFrog ([2814aa9](https://github.com/appfolio/dynamic_time_zone/commit/2814aa9f52b16bb258896cb47d584a9c6d9bd21d))
+
+
+### Continuous Integration
+
+* add Release Please and gem-releaser workflows for automated releases ([bb12fdb](https://github.com/appfolio/dynamic_time_zone/commit/bb12fdb27eb1f76c2351aa3820a45649b84b616b))
+* add Release Please and gem-releaser workflows for automated releases ([e3aa3b0](https://github.com/appfolio/dynamic_time_zone/commit/e3aa3b031ba87ed347ce6b88725fccb8dd8222b4))
+
 ## [Unreleased](https://github.com/appfolio/dynamic_time_zone/tree/HEAD)
 
 [Full Changelog](https://github.com/appfolio/dynamic_time_zone/compare/v1.2.0...HEAD)
