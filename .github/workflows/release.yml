@@ -5,6 +5,10 @@ on:
     branches:
       - main
       - master
+    paths:
+      - 'lib/**'
+      - 'dynamic_time_zone.gemspec'
+      - 'LICENSE.txt'
 
 permissions:
   contents: write
